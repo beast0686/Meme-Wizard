@@ -6,9 +6,6 @@ import google.generativeai as genai
 from flask import Flask, request, render_template, jsonify, Response
 from pymongo import MongoClient
 import concurrent.futures
-import random
-import concurrent.futures
-import random
 import threading
 import queue
 
