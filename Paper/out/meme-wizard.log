@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.22)  27 SEP 2025 00:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.22)  27 SEP 2025 00:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -603,10 +603,10 @@ t/fonts/type1/urw/times/utmbi8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw
 /times/utmr8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb
 >
 Output written on "C:/Data/BNMIT/Engineering CSE/Meme-Wizard/Paper/out/meme-wiz
-ard.pdf" (6 pages, 98567 bytes).
+ard.pdf" (6 pages, 98873 bytes).
 PDF statistics:
- 299 PDF objects out of 1000 (max. 8388607)
- 278 compressed objects within 3 object streams
+ 311 PDF objects out of 1000 (max. 8388607)
+ 282 compressed objects within 3 object streams
  99 named destinations out of 1000 (max. 500000)
  305 words of extra memory for PDF output out of 10000 (max. 10000000)
 
