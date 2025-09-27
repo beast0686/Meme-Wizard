@@ -6,6 +6,7 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{hyperref}
@@ -192,11 +193,12 @@ The model was trained on template-specific meme samples and hosted using Ollama 
     \item \textbf{Fine-tuned Model:} Gemma 2B
 \end{itemize}
 
-%\begin{figure}[htbp]
-%\centerline{\includegraphics{fig1.png}}
-%\caption{Flowchart}
-%\label{fig}
-%\end{figure}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.5\textwidth,keepaspectratio]{Assets/Flowchart.png}
+\caption{Flowchart}
+\label{fig:flowchart}
+\end{figure}
 
 \subsection{Emotion Detection Implementation}
 \begin{enumerate}
@@ -234,31 +236,47 @@ The model was trained on template-specific meme samples and hosted using Ollama 
 \subsection{Dataset}
 Three data sets were utilized in the meme generation system:
 \begin{enumerate}
-    \item Emotion classification data set that maps text to twenty emotion categories (Joyful, Sad, Angry, etc.) for emotion recognition training.
-    \item Meme template data set with identifiers, usage descriptions, image URLs, and emotional labels (e.g., “Disaster Girl” labeled as “Sarcastic”).
-    \item Instruction-tuning data set for Gemma 2B having triplets of:
-    \begin{itemize}
-        \item Instructions for creating funny meme text
-        \item Input of context and template identifiers
-        \item Fields of output text for given templates
-    \end{itemize}
+    \item An emotion classification data set that maps text to twenty emotion categories for training emotion recognition.
+    \item A meme template data set containing identifiers, usage descriptions, image URLs, and emotional labels.
+    \item 3.	An instruction-tuning data set for Gemma 2B, featuring triplets of instructions, input context and template identifiers, and corresponding output text fields.
 \end{enumerate}
 
-The training involved a number of different templates (“Drake Meme,” “Distracted Boyfriend,” “Two Buttons,” etc.), each having different text positioning requirements.
+The training involved several templates, including the "Drake Meme", "Distracted Boyfriend", and "Two Buttons", each with distinct text positioning requirements.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{Assets/graphs/radar_comparison.png}
+\caption{Performance Comparision}
+\label{fig:performance-comparison}
+\end{figure}
 
 \subsection{Results}
 \begin{enumerate}
-    \item \textbf{Quantitative Analysis:} The fine-tuned Gemma 2B model had 90\% success in producing syntactically correct meme text, which was much better compared to the pre-trained model. Latency for responses went from 3.5 seconds (Gemini API) to 1.2 seconds (local deployment), even using consumer hardware without GPU support. Contextual relevance was 40\% better than generic pre-trained models.
-    \item \textbf{Qualitative Assessment:} : The model showed subtle comprehension of meme structures and humor conventions, strictly following template-specific structural principles (e.g., pairs of contrasting elements in the “Drake Meme”). It was good at creating text for plausible situations and produced suitably brief content, steering clear of verbosity of pre-trained content a vital aspect of successful meme humor.
+    \item \textbf{Quantitative Analysis:} The fine-tuned Gemma model, deployed locally via Ollama, achieved a 100\% success rate in producing syntactically correct meme text across all tested templates. In terms of performance, the local model was notably faster, recording an average response latency of approximately 2.9 seconds. This outperformed the Gemini API, which averaged around 4.0 seconds for the same tasks. It is important to note that the local model was operating on consumer hardware without GPU support. Furthermore, the local Gemma model was significantly more concise, producing an average of  76.2 characters per response, whereas Gemini's responses averaged 127.2 characters. This highlights the fine-tuned model's ability to generate shorter, more direct meme captions.
+    \item \textbf{Qualitative Assessment:} The fine-tuned model showed a subtle comprehension of meme structures and humor conventions. It strictly followed template-specific structural principles, such as generating pairs of contrasting elements for the “Drake Meme.” The model excelled at creating text for plausible situations and, as supported by the quantitative data, produced suitably brief content. This tendency to avoid the verbosity sometimes seen in pre-trained models is a vital aspect of successful meme humor.
     % Doubt
 \end{enumerate}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.5\textwidth]{Assets/graphs/overall_provider_efficiency.png}
+\caption{Overall Efficiency}
+\label{fig:overall-efficiency}
+\end{figure}
+
 \subsection{Discussion}
 \begin{enumerate}
-    \item \textbf{Strengths and Limitations:} The highly optimized Gemma 2B model produces contextually accurate meme text efficiently and with a low computational overhead, allowing local deployment through Ollama. Some limitations are the limited training set (five templates only), sometimes missing cultural finesse, and text sizing errors in around 15\% of the output.
-    \item \textbf{Comparison with Baseline Approaches:} Relative to the baseline Gemini API, the fine-tuned model performs better in the elimination of dependency, cost cutting, and response time (the feedback is close to instantaneous). The drawback lies in decreased flexibility, as Gemini API showed better adaptability with new contexts and templates outside those it was trained on.
-    \item \textbf{Performance Analysis:} The most frequent failure mode (15\% of requests) was producing contextually appropriate but structurally incompatible JSON for the Imgflip API, resolved by strong error handling. The system architecture integrates the fine-tuned content generation model with the Imgflip API for rendering into an efficient hybrid solution that optimizes computational efficiency, response time, and generation quality.
+    \item \textbf{Strengths and Limitations:} The highly optimized Gemma 2B model efficiently produces contextually accurate meme text with low computational overhead, enabling local deployment through Ollama. The primary limitations include a constrained training set, which was composed of only five templates, occasional misses in cultural finesse, and text sizing errors in an estimated 15\% of outputs.
+    \item \textbf{Comparison with Baseline Approaches:} Relative to the baseline Gemini API, the fine-tuned model demonstrated superior performance in response time, with an average latency of 2.9 seconds versus Gemini's 4.0 seconds. This also resulted in the elimination of API dependency and associated costs. The main drawback lies in decreased flexibility, as the Gemini API showed better adaptability with new contexts and templates beyond its training set.
+    \item \textbf{Performance Analysis:} While the model achieved a 100\% success rate in generating output, the most frequent failure mode (occurring in an estimated 15\% of requests) was producing contextually appropriate but structurally incompatible JSON for the downstream Imgflip API. This issue was mitigated by implementing robust error handling. The system architecture effectively integrates the fine-tuned model with the Imgflip API for rendering, creating an efficient hybrid solution that balances computational load, response time, and generation quality.
 \end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{Assets/graphs/latency_comparison.png}
+\caption{Latency Comparison}
+\label{fig:latency-comparison}
+\end{figure}
 
 % -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %
@@ -266,22 +284,22 @@ The training involved a number of different templates (“Drake Meme,” “Dist
 \section{Optimization and Enhancements}
 \subsection{Migration from Cloud to Local Deployment}
 \begin{enumerate}
-    \item \textbf{Rationale for Moving from API to Local Model:} The original system was based on cloud APIs for NLP and emotion recognition, but this was subject to limitations like data privacy issues, rate limiting, and unpredictable latency. Upon reviewing performance and user feedback, the choice was made to move to a locally deployed model structure. This met the objectives of improving user privacy by processing sensitive inputs locally and offering more reliable response times regardless of internet access.
-    \item \textbf{Performance Comparison:} Migration to a local deployment of Ollama with a fine-tuned Gemma 2B produced better responsiveness of the system. Although initially, cloud APIs performed with more accuracy in classification of emotions, the fine-tuned local model eventually matched this level of performance but without issues related to network latency. Average emotion classification response times were shortened from approximately 2.5 seconds to below 800 milliseconds using local deployment, greatly increasing the perceived responsiveness of the system.
-    \item \textbf{Cost-Effectiveness Analysis:} The cost breakdown revealed significant savings in the long run via local deployment, even with the upfront expenditure on model fine-tuning. The cloud API approach had linearly scalable per-request fees, resulting in unintelligible costs during usage bursts. Meanwhile, the local deployment has a fixed cost for infrastructure with low incremental costs. For the size of the user base, the break-even point was approximately 4 months, beyond which the local deployment was progressively more cost-effective than the API-based method.
+    \item \textbf{Rationale for Moving from API to Local Model:} The system initially relied on cloud APIs for NLP tasks, which introduced challenges related to data privacy, rate limiting, and unpredictable latency. The decision to migrate to a locally deployed model was driven by the objectives of enhancing user privacy by processing inputs locally and providing more consistent response times, independent of internet connectivity.
+    \item \textbf{Performance Comparison:} The migration to a locally deployed, fine-tuned Gemma 2B model via Ollama improved the system's overall responsiveness. While cloud APIs initially showed higher accuracy in emotion classification, the fine-tuned local model eventually matched this performance without the associated network latency. This shift reduced average emotion classification response times from approximately 2.5 seconds to under 800 milliseconds, significantly enhancing the perceived system speed.
+    \item \textbf{Cost-Effectiveness Analysis:} A cost analysis revealed substantial long-term savings from local deployment. The cloud API model incurred per-request fees that scaled unpredictably with usage, whereas the local model involved a fixed infrastructure cost with minimal incremental expenses. The break-even point for this investment was estimated at four months, after which the local deployment became increasingly more cost-effective.
 \end{enumerate}
 
 \subsection{Fine-tuning Process}
 \begin{enumerate}
-    \item \textbf{Model Selection Considerations:} The group tested a number of language models for local use, balancing performance-per-resource, fine-tuning flexibility, and inference speed. Having benchmarked, they chose the Gemma 2B model as the best compromise of these metrics. While bigger models such as Llama 2 13B were more accurate in the beginning, the Gemma 2B model was more responsive on consumer-grade hardware and demonstrated improved adjustment to the dedicated use case in fine-tuning.
-    \item \textbf{Training Methodology:} The fine-tuning method employed a mix of supervised learning on human-annotated examples and reinforcement learning from user feedback. The training set consisted of more than 500 text samples with emotion annotations and meme pairings, drawn from public datasets and internal repositories. A progressive fine-tuning strategy was adopted, progressively unfreezing model layers to maintain general language understanding while fine-tuning to the particular tasks of emotion detection and meme text generation.
+    \item \textbf{Model Selection Considerations:} Several language models were evaluated for local deployment, balancing resource performance, fine-tuning flexibility, and inference speed. The Gemma 2B model was selected as the optimal choice. While larger models like Llama 2 13B offered higher initial accuracy, Gemma 2B provided better responsiveness on consumer-grade hardware and proved more adaptable to the specific use case during fine-tuning.
+    \item \textbf{Training Methodology:} The fine-tuning process utilized a combination of supervised learning on human-annotated examples and reinforcement learning from user feedback. The training set comprised over 500 text samples with emotion annotations and meme pairings. A progressive fine-tuning strategy was employed, gradually unfreezing model layers to specialize the model for emotion detection and meme text generation while preserving its general language capabilities.
 \end{enumerate}
 
 \subsection{Performance Optimizations}
 \begin{enumerate}
-    \item \textbf{Concurrent Processing Implementation:} To enhance system throughput and lower response times for multi-user environments, an asynchronous request handling framework with specialized worker pools was adopted. This enables concurrent processing of multiple requests with effective resource utilization. The emotion detection and meme generation modules run concurrently instead of sequentially, lowering overall response time by about 40\% from the original implementation.
-    \item \textbf{API Key Rotation Mechanism:} For outside services that persisted within the architecture, like the Imgflip API utilized for ultimate meme generation, a smart API key rotation mechanism was deployed. This system distributes requests over several API keys in accordance with usage patterns and rate limits, switching automatically to fallback keys upon nearing rate thresholds. This reduced service interruption by way of rate limiting effectively, and it also achieved maximum throughput from available API capacity.
-    \item \textbf{Caching Strategies:} A multi-level caching approach was used to further improve system performance. Highly accessed meme template and frequently found emotion pattern are cached in memory based on a time-expiration policy. Also, the generated meme outputs for the same or very similar inputs are cached in memory with an LRU policy to evict old entries. Caching resulted in avoided redundant processing and API calls, lowering average response time by about 65\% for common usage patterns while keeping the content fresh.
+    \item \textbf{Concurrent Processing Implementation:} To improve system throughput, an asynchronous request handling framework was implemented. This allowed for the concurrent processing of multiple requests, with emotion detection and meme generation modules running in parallel rather than sequentially. This architectural change reduced overall response time by approximately 40\%.
+    \item \textbf{API Key Rotation Mechanism:} For essential external services like the Imgflip API, an intelligent API key rotation mechanism was developed. This system distributes requests across multiple API keys based on usage patterns and automatically switches to fallback keys as rate limits are approached, minimizing service interruptions and maximizing available API throughput.
+    \item \textbf{Caching Strategies:} A multi-level caching system was introduced to further boost performance. Frequently accessed meme templates and common emotion patterns were cached in memory with a time-expiration policy. Additionally, generated meme outputs for identical or similar inputs were cached using an LRU (Least Recently Used) policy. These strategies reduced redundant processing and API calls, lowering average response times by an estimated 65\% for common usage patterns.
 \end{enumerate}
 
 % -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

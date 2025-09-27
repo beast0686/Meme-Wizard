@@ -400,61 +400,81 @@ LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    ... okay on input line 14tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
 
--- Lines per column: 56 (exact).
-(c:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count319
-\scratchdimen=\dimen187
-\scratchbox=\box57
-\nofMPsegments=\count320
-\nofMParguments=\count321
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count322
-\MPscratchDim=\dimen188
-\MPnumerator=\count323
-\makeMPintoPDFobject=\count324
-\everyMPtoPDFconversion=\toks25
-) (c:/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
-
-(c:/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
-Package hyperref Info: Link coloring OFF on input line 14.
-
-(C:/Data/BNMIT/Engineering CSE/Meme-Wizard/Paper/out/meme-wizard.out)
-(C:/Data/BNMIT/Engineering CSE/Meme-Wizard/Paper/out/meme-wizard.out)
-\@outlinefile=\write3
-\openout3 = `meme-wizard.out'.
+[3]
 
 
-./meme-wizard.tex:66: Argument of \textsuperscript  has an extra }.
+
+[4]
+
+
+
+[5]
+
+
+Underfull \hbox (badness 4846) in paragraph at lines 322--323
+\OT1/ptm/m/n/8 2023. [On-line]. Avail-able: $https : / / www . mongodb . com / 
+blog / channel /
+ []
+
+
+Underfull \hbox (badness 6559) in paragraph at lines 327--328
+[]\OT1/ptm/m/n/8 MongoDB, \Use Cases of AI with Mon-goDB," 2023. [On-
+ []
+
+
+Underfull \hbox (badness 1430) in paragraph at lines 327--328
+\OT1/ptm/m/n/8 line]. Avail-able: $https : / / www . mongodb . com / en-[]us / 
+solutions / use-[]cases /
+ []
+
+
+** Conference Paper **
+Before submitting the final camera ready copy, remember to:
+
+ 1. Manually equalize the lengths of two columns on the last page
+ of your paper;
+
+ 2. Ensure that any PostScript and/or PDF output post-processing
+ uses only Type 1 fonts and that every step in the generation
+ process uses the appropriate paper size.
+
+
+
+[6] (C:/Data/BNMIT/Engineering CSE/Meme-Wizard/Paper/out/meme-wizard.aux)
+Runaway argument?
+{\contentsline {subsection}{\numberline {\mbox ibcite{b1}{1} \bibcite \ETC.
+./meme-wizard.tex:368: File ended while scanning use of \@writefile.
 <inserted text> 
                 \par 
-l.66 
-     
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
+l.368 \end{document}
+                    
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
+
+ ***********
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-09-02>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 4339 strings out of 467797
+ 67084 string characters out of 5435982
+ 486428 words of memory out of 5000000
+ 32943 multiletter control sequences out of 15000+600000
+ 667033 words of font info for 125 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,11n,65p,1174b,336s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<
+!pdfTeX error: pdflatex.exe (file c:/texlive/2025/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy7.pfb): fflush() failed (Invalid argument)
+ ==> Fatal error occurred, no output PDF file produced!
+at might be the root of the problem. But if
 your `}' was spurious, just type `2' and it will go away.
 
 Runaway argument?
